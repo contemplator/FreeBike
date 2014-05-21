@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<link rel="stylesheet" type="text/css" media="all" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" media="all" href="css/reset.css" />
+        <link rel="stylesheet" type="text/css" media="all" href="css/text.css" />
+        <link rel="stylesheet" type="text/css" media="all" href="css/960.css" />
+        <script type="text/javascript" src="js/jquery-2.1.0.min.js"></script>
+        <script type="text/javascript" src="js/flip/rotate3Di.js"></script>
+        <script type="text/javascript" src="js/flip/jquery-css-transform.js"></script>
+        <script>
+        	$(document).ready(function(){
+        		$('#ex2').click(function () {
+        			$(this).rotate3Di(180, 500);
+        			$('#ex2').text("fdsf");
+        		});
+        	});
+        </script>
+	</head>
+	<style>
+		.inset {
+		    -webkit-transform: translate(0, 0);
+		    padding: 8px;
+		}
+		.ex_div {
+		    width: 72px; height: 72px; background: #f0f; margin-right: 24px;
+		    -webkit-transform: translate(0, 0);
+		}
+	</style>
+	<body>
+		<div class="inset example">
+			<p id="ex2" class="ex_div" style="margin-bottom: 0;">CLICK<br />ME #ex2</p>
+		</div>
+	</body>
+<html>
