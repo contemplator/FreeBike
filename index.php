@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta http-equiv="Content-Type" menu="text/html charset=utf-8">
+		<meta http-equiv="Content-Type" content="text/html charset=utf-8">
 		<link rel="stylesheet" type="text/css" media="all" href="css/bootstrap.min.css" />
 		<link rel="stylesheet" type="text/css" media="all" href="css/reset.css" />
         <link rel="stylesheet" type="text/css" media="all" href="css/text.css" />
@@ -74,7 +74,7 @@
 
 	            //onclick -> link
 	            $("#option-bar1").click(function(){
-	            	document.location.href="news.php";
+	            	document.location.href="introduce.php";
 	            });
 	            $("#option-bar2").click(function(){
 	            	document.location.href="video.php";
@@ -82,24 +82,9 @@
 	            $("#option-bar3").click(function(){
 	            	document.location.href="discuz.php";
 	            });
-	            //onclick -> link
-
-	            // flip
-	         	// $('#option-bar1').mouseover(function () {
-        		// 	$(this).rotate3Di(180, 500);
-        		// });
-        		// $('#option-bar1').mouseout(function () {
-        		// 	$(this).rotate3Di(180, 500);
-        		// });
-        		// $('#option-bar2').hover(function () {
-        		// 	$(this).rotate3Di(180, 500);
-        		// },function(){
-        		// 	$(this).rotate3Di(180, 500);
-        		// });
-        		// $('#option-bar3').hover(function () {
-        		// 	$(this).rotate3Di(180, 500);
-        		// });
-	            // flip
+	            $("#head").click(function(){
+	            	document.location.href="index.php";
+	            });
 	    	});
 	    </script>
 	</head>
@@ -111,12 +96,14 @@
 			margin-top: 30px;
 			margin-bottom: 20px;
 		}
+		.head:hover{
+			cursor: pointer;
+		}
 		.slider{
 			margin-bottom: 20px;
 			background-color: #eeeeee;
 		}
 		#option-bar1{
-			height: 150px;
 			background-color: #f09bc2;
 		}
 		#option-bar1:hover{
@@ -124,7 +111,6 @@
 			cursor: pointer;
 		}
 		#option-bar2{
-			height: 150px;
 			background-color: #f8c508;
 		}
 		#option-bar2:hover{
@@ -132,7 +118,6 @@
 			cursor: pointer;
 		}
 		#option-bar3{
-			height: 150px;
 			background-color: #27f20b;
 		}
 		#option-bar3:hover{
@@ -172,7 +157,7 @@
         /*jssor slider*/
 	</style>
 	<body>
-		<div class="head container_12">
+		<div class="head container_12" id="head">
 			<h1>光譜計畫</h1>
 		</div>
 		<div id="slider1_container" style="position: relative; top: 0px; left: 0px; width: 809px; height: 150px; overflow: hidden;" class="slider container_12">
@@ -188,7 +173,7 @@
 
 	        <!-- Slides Container -->
 	        <div u="slides" style="cursor: move; position: absolute; left: 0px; top: 0px; width: 809px; height: 150px; overflow: hidden;">
-	            <div><img u="image" src="img/ancient-lady/005.jpg" /></div>
+	            <div><a href="http://tw.yahoo.com/"><img u="image" src="img/ancient-lady/005.jpg" /></a></div>
 	            <div><img u="image" src="img/ancient-lady/006.jpg" /></div>
 	            <div><img u="image" src="img/ancient-lady/011.jpg" /></div>
 	            <div><img u="image" src="img/ancient-lady/013.jpg" /></div>
@@ -214,13 +199,22 @@
 		</div>
 		<div class="menu container_12">
 			<div id="option-bar1" class="block grid_4">
-				<h2>熱門訊息<h2>
+				<h2>活動訴求<h2>
 			</div>
 			<div id="option-bar2" class="block grid_4">
-				<h2>影片版</h2>
+				<h2>影片分享</h2>
 			</div>
 			<div id="option-bar3" class="block grid_4">
-				<h2>討論版</h2>
+				<h2>心得分享</h2>
+			</div>
+			<div class="block grid_4">
+				<p>想了解我們為什麼做？怎麼做到的嗎？</p>
+			</div>
+			<div class="block grid_4">
+				<p>想了解我們為什麼做？怎麼做到的嗎？</p>
+			</div>
+			<div class="block grid_4">
+				<p>想了解我們為什麼做？怎麼做到的嗎？</p>
 			</div>
 		</div>
 	</body>
