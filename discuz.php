@@ -1,7 +1,15 @@
+<?php
+	require("db_config.php");
+    require("db_class.php");
+    $db = new DB();
+    $db->connect_db($_DB['host'], $_DB['username'], $_DB['password'], $_DB['dbname']);
+	$sql = "SELECT * FROM review WHERE 1 ORDER BY posttime DESC ";
+	$db->query($sql);
+?>
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta http-equiv="Content-Type" menu="text/html charset=utf-8">
+		<meta http-equiv="Content-Type" content="text/html charset=utf-8">
 		<link rel="stylesheet" type="text/css" media="all" href="css/bootstrap.min.css" />
 		<link rel="stylesheet" type="text/css" media="all" href="css/reset.css" />
         <link rel="stylesheet" type="text/css" media="all" href="css/text.css" />
@@ -33,7 +41,7 @@
 		.message{
 			width: 100%;
 			margin: 0px auto;
-			margin-top: 10px;
+			margin-top: 20px;
 			margin-bottom: 10px;
 			border-radius: 10px;
 			border-width: 2px;
@@ -107,28 +115,39 @@
 		}
 		.comment{
 			margin-left: 10px;
+			margin-top: 5px;
 			text-align: left;
 		}
-		.time-comment{
+		.comment-info{
 			font-size: 10px;
 			text-align: left;
 			margin-right: 5px;
-			float: left;
-			height: 18px;
-		}
-		.like-comment{
-			font-size: 10px;
-			text-align: left;
-			height: 25px;
+			height: 24px;
 		}
 		#textarea{
-			width: 100%;
+			width: 97%;
 			height: 50px;
 			resize: none;
 			overflow: hidden;
 		}
 		#submit{
 			text-align: right;
+			margin-top: 5px;
+		}
+		.form{
+			text-align: left;
+			background-color: #ffffff;
+			padding: 10px;
+			border-radius: 5px;
+		}
+		label{
+			float: left;
+			font-weight: bold;
+			margin: 10px;
+			margin-top: 5px;
+			font-size: 16px;
+		}
+		.btn-like{
 		}
 	</style>
 	<body>
@@ -142,13 +161,85 @@
 		</div>
 		<div class="content container_12">
 			<div class="form">
-				<form>
-					<textarea id="textarea" name="post" placeholder="What's on your mind?" cols="50" rows="20"></textarea><br>
-					<p id="submit" class="btn">submit</p>
-					<!-- <input type="submit" name="submit" value="submit" id="submit"> -->
+				<form class="form-horizontal" action="discuz_post.php" method="post">
+					<label for="user">Nickname</label>
+					<input type="text" name="user" placeholder="type your nickname">
+					<textarea class="form-control" id="textarea" name="content_review" placeholder="What's on your mind?"></textarea>
+					<div id="submit">
+						<input type="submit" name="submit" value="submit" class="btn btn-primary">
+					</div>
 				</form>
 			</div>
+
+			
+				<!-- basic infomation -->
+			<?php while($result = $db->fetch_array()){?>
 			<div class="message">
+				<div class="basic">
+					<div class="avatar">
+						<img src="img/big.jpg"/>
+					</div>
+					<div class="info">
+						<p class="name"><?php echo $result['user'];?></p>
+						<p class="time"><?php echo $result['posttime'];?></p>
+					</div>
+				</div>
+				<div class="article">
+					<?php echo $result['content'];?>
+				</div>
+
+				<!-- photo -->
+				<?php if($result['photoUrl']){ ?>
+				<div class="sharephoto">
+					<img src="img/<?php echo $result['photoUrl'];?>">
+				</div>
+				<!-- photo -->
+
+				<?php } ?>
+				<div class="tools">
+					<span name="like" value"like" id="btn-like">like</span>
+					<span name="comment" value="comment" id="btn-comment">comment</span>
+				</div>
+
+				<!-- likes -->
+				<?php if($result['likes'] > 0){ ?>
+				<div class="description">
+					<p> <?php echo $result['likes'];?> people like this.</p> 
+				</div>
+				<?php } ?>
+
+				<!-- comments -->
+				<?php
+					$db2 = new DB();
+				    $db2->connect_db($_DB['host'], $_DB['username'], $_DB['password'], $_DB['dbname']);
+					$sql_comment = "SELECT * FROM `comment` WHERE `d_id` = ".$result['id'];
+					$db2->query($sql_comment);
+					while($result_comment = $db2->fetch_array()){
+				?>
+				<div class="comments">
+					<div class="avatar2">
+						<img src="img/big.jpg"/>
+					</div>
+					<div class="guest-name">
+						<p><?php echo $result_comment['user'];?></p>
+					</div>
+					<div class="comment">
+						<?php echo $result_comment['content'];?>
+					</div>
+					<div class="comment-info">
+						<span class="comment-time"><?php echo $result_comment['comTime'];?></span>
+						<span class="comment-like"><?php echo $result_comment['likes'];?> like it.</span>
+						<span class="dot">。</span>
+						<span class="comment-like">like</span>
+					</div>
+				</div>
+				<?php } ?> 
+				<!-- comments -->
+
+			</div>
+			<?php } ?>
+			
+			<!-- <div class="message">
 				<div class="basic">
 					<div class="avatar">
 						<img src="img/big.jpg"/>
@@ -188,48 +279,7 @@
 						<p>Like</p>
 					</div>
 				</div>
-			</div>
-			<div class="message">
-				<div class="basic">
-					<div class="avatar">
-						<img src="img/big.jpg"/>
-					</div>
-					<div class="info">
-						<p class="name">Leo Lin</p>
-						<p class="time">2014/04/31 12:09:21</p>
-					</div>
-				</div>
-				<div class="article">
-					因為臺北轉轍器異常的關係，本列車在此臨時停車。
-				</div>
-				<div class="sharephoto">
-					<img src="img/test.jpg">
-				</div>
-				<div class="tools">
-					<span name="like" value"like" id="btn-like">like</span>
-					<span name="comment" value="comment" id="btn-comment">comment</span>
-				</div>
-				<div class="description">
-					<p> 20 people like this.</p> 
-				</div>
-				<div class="comments">
-					<div class="avatar2">
-						<img src="img/big.jpg"/>
-					</div>
-					<div class="guest-name">
-						<p>Leo Lin</p>
-					</div>
-					<div class="comment">
-						肉淋，用淋的看來肉真的很多!
-					</div>
-					<div class="time-comment">
-						<p>May 5</p>
-					</div>
-					<div class="like-comment">
-						<p>Like</p>
-					</div>
-				</div>
-			</div>
+			</div> -->
 		</div>
 	</body>
 <html>

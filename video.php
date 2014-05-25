@@ -1,7 +1,20 @@
+<?php
+	require("db_config.php");
+    require("db_class.php");
+    // if($_SESSION['account'] == "johogo"){
+    // 	$account = 1;
+    // }else{
+    // 	$account = $_SESSION['account'];
+    // }
+    $db = new DB();
+    $db->connect_db($_DB['host'], $_DB['username'], $_DB['password'], $_DB['dbname']);
+	$sql = "SELECT * FROM video WHERE 1";
+	$db->query($sql);
+?>
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta http-equiv="Content-Type" menu="text/html charset=utf-8">
+		<meta http-equiv="Content-Type" content="text/html charset=utf-8">
 		<link rel="stylesheet" type="text/css" media="all" href="css/bootstrap.min.css" />
 		<link rel="stylesheet" type="text/css" media="all" href="css/reset.css" />
         <link rel="stylesheet" type="text/css" media="all" href="css/text.css" />
@@ -36,8 +49,28 @@
 			margin: 0px auto;
 			text-align: center;
 		}
-		a{
+		td{
+			width: 30%;
+		}
+		a.link{
 			float: left;
+			margin: 10px; 
+		}
+		p{
+			margin: 10px;
+		}
+		p.update-uset{
+			color: #999999;
+		}
+		p.times{
+			color: #999999;
+		}
+		tr:nth-child(even){
+			background-color: #dddddd;
+		}
+		a.upload{
+			margin-right: 0px;
+			text-align: right;
 		}
 	</style>
 	<body>
@@ -48,35 +81,36 @@
 			<a href="introduce.php" class="menu">活動訴求</a>
 			<a href="video.php" class="menu">影片分享</a>
 			<a href="discuz.php" class="menu">心得分享</a>
+			<a class="upload" href="upload.php">上傳檔案</a>
 		</div>
 		<div class="iframe container_12">
 			<iframe name="frame" frameborder="0" src="http://www.youtube.com/embed/U6avQPy643k"></iframe>
 		</div>
 		<div class="table">
-			<table>
-				<tr class="container_12">
-					<td class="grid_3 alpha">
-						<a href="https://www.youtube.com/v/T6suo2yXRvg&autoplay=1" target="frame"><img src="https://i1.ytimg.com/vi/T6suo2yXRvg/1.jpg?time=1400082856358"/></a>
-						<p>test</p>
-						<p>test</p>
-						<p>test</p>
-						<p>test</p>
+			<table class="container_12">
+				<?php 
+					$count = 0;
+					while($result = $db->fetch_array()){
+						if($count == 3){
+							$count = 0;
+						}
+						if($count == 0){
+							echo "<tr>";
+						}
+				?>
+					<td>
+						<a href="https://www.youtube.com/v/<?php echo $result['videoUrl'];?>&autoplay=1" target="frame" class="link"><img src="<?php echo $result['imgUrl'];?>"/></a>
+						<p class="update-time"><?php echo $result['updateDate'];?></p>
+						<p class="update-uset"><?php echo $result['updateUser'];?></p>
+						<p class="times">觀看次數：<?php echo $result['popular'];?></p>
 					</td>
-					<td class="grid_3"><a href="https://www.youtube.com/v/T6suo2yXRvg&autoplay=1" target="frame"><img src="https://i1.ytimg.com/vi/T6suo2yXRvg/1.jpg?time=1400082856358"/></a></td>
-					<td class="grid_3"><a href="https://www.youtube.com/v/T6suo2yXRvg&autoplay=1" target="frame"><img src="https://i1.ytimg.com/vi/T6suo2yXRvg/1.jpg?time=1400082856358"/></a></td>
-					<td class="grid_3 omega"><a href="https://www.youtube.com/v/T6suo2yXRvg&autoplay=1" target="frame"><img src="https://i1.ytimg.com/vi/T6suo2yXRvg/1.jpg?time=1400082856358"/></a></td>
-				</tr>
-				<tr class="container_12">
-					<td class="grid_3 alpha"><a href="https://www.youtube.com/v/T6suo2yXRvg&autoplay=1" target="frame"><img src="https://i1.ytimg.com/vi/T6suo2yXRvg/1.jpg?time=1400082856358"/></a></td>
-					<td class="grid_3"><a href="https://www.youtube.com/v/T6suo2yXRvg&autoplay=1" target="frame"><img src="https://i1.ytimg.com/vi/T6suo2yXRvg/1.jpg?time=1400082856358"/></a></td>
-					<td class="grid_3"><a href="https://www.youtube.com/v/T6suo2yXRvg&autoplay=1" target="frame"><img src="https://i1.ytimg.com/vi/T6suo2yXRvg/1.jpg?time=1400082856358"/></a></td>
-					<td class="grid_3 omega"><a href="https://www.youtube.com/v/T6suo2yXRvg&autoplay=1" target="frame"><img src="https://i1.ytimg.com/vi/T6suo2yXRvg/1.jpg?time=1400082856358"/></a></td>
-				</tr>
-				<tr class="container_12">
-					<td class="grid_3 alpha"><a href="https://www.youtube.com/v/T6suo2yXRvg&autoplay=1" target="frame"><img src="https://i1.ytimg.com/vi/T6suo2yXRvg/1.jpg?time=1400082856358"/></a></td>
-					<td class="grid_3"><a href="https://www.youtube.com/v/T6suo2yXRvg&autoplay=1" target="frame"><img src="https://i1.ytimg.com/vi/T6suo2yXRvg/1.jpg?time=1400082856358"/></a></td>
-					<td class="grid_3"><a href="https://www.youtube.com/v/T6suo2yXRvg&autoplay=1" target="frame"><img src="https://i1.ytimg.com/vi/T6suo2yXRvg/1.jpg?time=1400082856358"/></a></td>
-					<td class="grid_3 omega"><a href="https://www.youtube.com/v/T6suo2yXRvg&autoplay=1" target="frame"><img src="https://i1.ytimg.com/vi/T6suo2yXRvg/1.jpg?time=1400082856358"/></a></td>
+				<?php
+						$count++;
+						if($count == 3){
+							echo "</tr>";
+						}
+					}
+				?>
 				</tr>
 			</table>
 		</div>
