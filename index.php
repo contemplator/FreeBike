@@ -90,11 +90,7 @@
 	</head>
 	<style>
 		.head{
-			height: 200px;
-			background: #22bdf3;
 			text-align: center;
-			margin-top: 30px;
-			margin-bottom: 20px;
 		}
 		.head:hover{
 			cursor: pointer;
@@ -125,6 +121,11 @@
 			cursor: pointer;
 		}
 		#option-bar2:hover{
+		}
+		.tool{
+			background: #000000;
+			border-width:medium;
+			border-style:dashed;
 		}
 		.block{
 			text-align: center;
@@ -158,7 +159,7 @@
 	</style>
 	<body>
 		<div class="head container_12" id="head">
-			<h1>光譜計畫</h1>
+			<img src="img/font_head.jpg">
 		</div>
 		<div id="slider1_container" style="position: relative; top: 0px; left: 0px; width: 809px; height: 150px; overflow: hidden;" class="slider container_12">
 			<!-- Loading Screen -->
@@ -173,14 +174,14 @@
 
 	        <!-- Slides Container -->
 	        <div u="slides" style="cursor: move; position: absolute; left: 0px; top: 0px; width: 809px; height: 150px; overflow: hidden;">
-	            <div><a href="http://tw.yahoo.com/"><img u="image" src="img/ancient-lady/005.jpg" /></a></div>
-	            <div><img u="image" src="img/ancient-lady/006.jpg" /></div>
-	            <div><img u="image" src="img/ancient-lady/011.jpg" /></div>
-	            <div><img u="image" src="img/ancient-lady/013.jpg" /></div>
-	            <div><img u="image" src="img/ancient-lady/014.jpg" /></div>
-	            <div><img u="image" src="img/ancient-lady/019.jpg" /></div>
-	            <div><img u="image" src="img/ancient-lady/020.jpg" /></div>
-	            <div><img u="image" src="img/ancient-lady/021.jpg" /></div>
+	            <div><a href="video.php"><img u="image" src="img/ancient-lady/005.jpg" /></a></div>
+	            <div><a href="video.php"><img u="image" src="img/ancient-lady/006.jpg" /></a></div>
+	            <div><a href="video.php"><img u="image" src="img/ancient-lady/011.jpg" /></a></div>
+	            <div><a href="video.php"><img u="image" src="img/ancient-lady/013.jpg" /></a></div>
+	            <div><a href="video.php"><img u="image" src="img/ancient-lady/014.jpg" /></a></div>
+	            <div><a href="video.php"><img u="image" src="img/ancient-lady/019.jpg" /></a></div>
+	            <div><a href="video.php"><img u="image" src="img/ancient-lady/020.jpg" /></a></div>
+	            <div><a href="video.php"><img u="image" src="img/ancient-lady/021.jpg" /></a></div>
 	        </div>
 
 	        <!-- bullet navigator container -->
@@ -198,23 +199,26 @@
 	        <a style="display: none" href="http://www.jssor.com">Slider</a>
 		</div>
 		<div class="menu container_12">
-			<div id="option-bar1" class="block grid_4">
-				<h2>活動訴求<h2>
-			</div>
-			<div id="option-bar2" class="block grid_4">
-				<h2>影片分享</h2>
-			</div>
-			<div id="option-bar3" class="block grid_4">
-				<h2>心得分享</h2>
-			</div>
+			<!-- <div class="tool"> -->
+				<div id="option-bar1" class="block grid_4">
+					<img src="img/introduce.jpg"/>
+				</div>
+				<div id="option-bar2" class="block grid_4 alpha omega">
+					<img src="img/video.jpg"/>
+				</div>
+				<div id="option-bar3" class="block grid_4">
+					<img src="img/review.jpg"/>
+				</div>
+			<!-- </div> -->
+
 			<div class="block grid_4">
 				<p>想了解我們為什麼做？怎麼做到的嗎？</p>
 			</div>
 			<div class="block grid_4">
-				<p>想了解我們為什麼做？怎麼做到的嗎？</p>
+				<p>想看看大家怎麼騎單車，順便救地球嗎？</p>
 			</div>
 			<div class="block grid_4">
-				<p>想了解我們為什麼做？怎麼做到的嗎？</p>
+				<p>有什麼想對大家說的嗎？</p>
 			</div>
 		</div>
 	</body>
