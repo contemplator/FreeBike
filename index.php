@@ -173,15 +173,18 @@
 	        </div>
 
 	        <!-- Slides Container -->
-	        <div u="slides" style="cursor: move; position: absolute; left: 0px; top: 0px; width: 809px; height: 150px; overflow: hidden;">
-	            <div><a href="video.php"><img u="image" src="img/ancient-lady/005.jpg" /></a></div>
-	            <div><a href="video.php"><img u="image" src="img/ancient-lady/006.jpg" /></a></div>
+	        <div u="slides" style="position: absolute; left: 0px; top: 0px; width: 809px; height: 150px; overflow: hidden;">
+	            <div><a href="video.php"><img u="image" src="resource/01.jpg" /></a></div>
+	            <div><a href="video.php"><img u="image" src="resource/02.jpg" /></a></div>
+	            <div><a href="video.php"><img u="image" src="resource/03.jpg" /></a></div>
+	            <div><a href="video.php"><img u="image" src="resource/04.jpg" /></a></div>
+	            <div><a href="video.php"><img u="image" src="resource/05.jpg" /></a></div>
+	            <div><a href="video.php"><img u="image" src="resource/06.jpg" /></a></div>
 	            <div><a href="video.php"><img u="image" src="img/ancient-lady/011.jpg" /></a></div>
 	            <div><a href="video.php"><img u="image" src="img/ancient-lady/013.jpg" /></a></div>
 	            <div><a href="video.php"><img u="image" src="img/ancient-lady/014.jpg" /></a></div>
 	            <div><a href="video.php"><img u="image" src="img/ancient-lady/019.jpg" /></a></div>
 	            <div><a href="video.php"><img u="image" src="img/ancient-lady/020.jpg" /></a></div>
-	            <div><a href="video.php"><img u="image" src="img/ancient-lady/021.jpg" /></a></div>
 	        </div>
 
 	        <!-- bullet navigator container -->

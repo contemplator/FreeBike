@@ -76,7 +76,9 @@
 			width: 99%;
 		}
 		.tools{
+			background: #dddddd;
 			text-align: left;
+			padding: 1px;
 		}
 		#btn-like{
 			color: #8080a4;
@@ -113,6 +115,12 @@
 			margin-right: 10px;
 			height: 10px;
 		}
+		.txt_comment_user{
+			width: 20%;
+		}
+		.txt_comment{
+			width: 60%;
+		}
 		.comment{
 			margin-left: 10px;
 			margin-top: 5px;
@@ -146,8 +154,6 @@
 			margin: 10px;
 			margin-top: 5px;
 			font-size: 16px;
-		}
-		.btn-like{
 		}
 	</style>
 	<body>
@@ -197,15 +203,21 @@
 
 				<?php } ?>
 				<div class="tools">
-					<span name="like" value"like" id="btn-like">like</span>
-					<span name="comment" value="comment" id="btn-comment">comment</span>
+					<!-- <span name="like" value"like" id="btn-like">like</span> -->
+					<form class="comment" action="comment_post.php" method="POST">
+						<input type="hidden" name="discuz_id" value="<?php echo $result['id']; ?>"/>
+						<input type="text" class="txt_comment_user" name="user_comment" placeholder="Guest" />
+						<input type="text" class="txt_comment" name="comment" placeholder="給個回應吧!" />
+						<input type="submit" class="btn btn-default btn_comment" name="submit_comment" value="發送" />
+					</form>
+					<!-- <span name="comment" value="comment" id="btn-comment">comment</span> -->
 				</div>
 
 				<!-- likes -->
 				<?php if($result['likes'] > 0){ ?>
-				<div class="description">
+				<!-- <div class="description">
 					<p> <?php echo $result['likes'];?> people like this.</p> 
-				</div>
+				</div> -->
 				<?php } ?>
 
 				<!-- comments -->
@@ -228,9 +240,9 @@
 					</div>
 					<div class="comment-info">
 						<span class="comment-time"><?php echo $result_comment['comTime'];?></span>
-						<span class="comment-like"><?php echo $result_comment['likes'];?> like it.</span>
-						<span class="dot">。</span>
-						<span class="comment-like">like</span>
+						<!-- <span class="comment-like"><?php echo $result_comment['likes'];?> like it.</span> -->
+						<!-- <span class="dot">。</span> -->
+						<!-- <span class="comment-like">like</span> -->
 					</div>
 				</div>
 				<?php } ?> 
@@ -238,48 +250,6 @@
 
 			</div>
 			<?php } ?>
-			
-			<!-- <div class="message">
-				<div class="basic">
-					<div class="avatar">
-						<img src="img/big.jpg"/>
-					</div>
-					<div class="info">
-						<p class="name">Leo Lin</p>
-						<p class="time">2014/04/31 12:09:21</p>
-					</div>
-				</div>
-				<div class="article">
-					因為臺北轉轍器異常的關係，本列車在此臨時停車。
-				</div>
-				<div class="sharephoto">
-					<img src="img/test.jpg">
-				</div>
-				<div class="tools">
-					<span name="like" value"like" id="btn-like">like</span>
-					<span name="comment" value="comment" id="btn-comment">comment</span>
-				</div>
-				<div class="description">
-					<p> 20 people like this.</p> 
-				</div>
-				<div class="comments">
-					<div class="avatar2">
-						<img src="img/big.jpg"/>
-					</div>
-					<div class="guest-name">
-						<p>Leo Lin</p>
-					</div>
-					<div class="comment">
-						肉淋，用淋的看來肉真的很多!
-					</div>
-					<div class="time-comment">
-						<p>May 5</p>
-					</div>
-					<div class="like-comment">
-						<p>Like</p>
-					</div>
-				</div>
-			</div> -->
 		</div>
 	</body>
 <html>

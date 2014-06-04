@@ -8,7 +8,7 @@
     // }
     $db = new DB();
     $db->connect_db($_DB['host'], $_DB['username'], $_DB['password'], $_DB['dbname']);
-	$sql = "SELECT * FROM video WHERE 1";
+	$sql = "SELECT * FROM video WHERE 1 ORDER BY popular DESC";
 	$db->query($sql);
 ?>
 <!DOCTYPE html>
@@ -31,6 +31,9 @@
 	            });
 	            $("#option-bar3").click(function(){
 	            	document.location.href="discuz.php";
+	            });
+	            $("#head").click(function(){
+	            	document.location.href="index.php";
 	            });
 	    	});
 	    </script>
@@ -74,7 +77,7 @@
 		}
 	</style>
 	<body>
-		<div class="head container_12">
+		<div class="head container_12" id="head">
 			<h1>光譜計畫</h1>
 		</div>
 		<div class="container_12">
@@ -84,7 +87,7 @@
 			<a class="upload" href="upload.php">上傳檔案</a>
 		</div>
 		<div class="iframe container_12">
-			<iframe name="frame" frameborder="0" src="http://www.youtube.com/embed/U6avQPy643k"></iframe>
+			<iframe name="frame" frameborder="0" src="http://www.youtube.com/embed/lz0tYXzkOiI"></iframe>
 		</div>
 		<div class="table">
 			<table class="container_12">
@@ -99,7 +102,7 @@
 						}
 				?>
 					<td>
-						<a href="https://www.youtube.com/v/<?php echo $result['videoUrl'];?>&autoplay=1" target="frame" class="link"><img src="<?php echo $result['imgUrl'];?>"/></a>
+						<a href="https://www.youtube.com/v/<?php echo $result['videoUrl'];?>&autoplay=1" target="frame" class="link"><img src="https://i1.ytimg.com/vi/<?php echo $result['imgUrl'];?>/default.jpg"/></a>
 						<p class="update-time"><?php echo $result['updateDate'];?></p>
 						<p class="update-uset"><?php echo $result['updateUser'];?></p>
 						<p class="times">觀看次數：<?php echo $result['popular'];?></p>

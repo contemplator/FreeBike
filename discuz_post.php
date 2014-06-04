@@ -12,6 +12,6 @@
 		$db->query($review_insert);
 	}
 
-	header('Location: http://localhost:8080/FreeBike/discuz.php');
+	header('Location: http://140.119.19.46/FreeBike/discuz.php');
 	exit;
 ?>
