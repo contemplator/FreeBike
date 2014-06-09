@@ -8,7 +8,7 @@
     // }
     $db = new DB();
     $db->connect_db($_DB['host'], $_DB['username'], $_DB['password'], $_DB['dbname']);
-	$sql = "SELECT * FROM video WHERE 1 ORDER BY popular DESC";
+	$sql = "SELECT * FROM photo WHERE 1 ORDER BY click DESC";
 	$db->query($sql);
 ?>
 <!DOCTYPE html>
@@ -39,15 +39,6 @@
 	    </script>
 	</head>
 	<style>
-		.iframe{
-			margin-top: 20px;
-			margin-bottom: 20px;
-			text-align: center;
-		}
-		iframe{
-			width: 850px;
-			height: 480px;
-		}
 		table{
 			margin: 0px auto;
 			text-align: center;
@@ -92,7 +83,7 @@
 				<?php 
 					$count = 0;
 					while($result = $db->fetch_array()){
-						if($count == 3){
+						if($count == 5){
 							$count = 0;
 						}
 						if($count == 0){
@@ -100,14 +91,15 @@
 						}
 				?>
 					<td>
-						<a href="https://www.youtube.com/v/<?php echo $result['videoUrl'];?>&autoplay=1" target="frame" class="link"><img src="https://i1.ytimg.com/vi/<?php echo $result['imgUrl'];?>/default.jpg"/></a>
-						<p class="update-time"><?php echo $result['updateDate'];?></p>
-						<p class="update-uset"><?php echo $result['updateUser'];?></p>
-						<p class="times">觀看次數：<?php echo $result['popular'];?></p>
+						<img class="photo" src="sharephoto/<?php echo $result['name'];?>"/>
+						<p class="photo_name"><?php echo $result['name'];?></p>
+						<p class="photo_description"><?php echo $result['description'];?></p>
+						<p class="sharetime"><?php echo substr($result['sharetime'], 0, 10);?></p>
+						<p class="click">觀看次數：<?php echo $result['click'];?></p>
 					</td>
 				<?php
 						$count++;
-						if($count == 3){
+						if($count == 5){
 							echo "</tr>";
 						}
 					}
