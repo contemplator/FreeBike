@@ -8,22 +8,6 @@
         <link rel="stylesheet" type="text/css" media="all" href="css/960.css" />
         <link rel="stylesheet" type="text/css" media="all" href="css/head.css" />
         <script type="text/javascript" src="js/jquery-2.1.0.min.js"></script>
-	    <script>
-	    	$(document).ready(function(){
-	    		$("#option-bar1").click(function(){
-	            	document.location.href="news.php";
-	            });
-	            $("#option-bar2").click(function(){
-	            	document.location.href="video.php";
-	            });
-	            $("#option-bar3").click(function(){
-	            	document.location.href="discuz.php";
-	            });
-	            $("#head").click(function(){
-	            	document.location.href="index.php";
-	            });
-	    	});
-	    </script>
 	</head>
 	<style>
 		.content-bg{
@@ -59,13 +43,13 @@
 		}
 	</style>
 	<body>
-		<div class="head container_12" id="head">
-			<h1>光譜計畫</h1>
+		<div id="head" class="container_12">
+			<img src="img/page_head.png">
 		</div>
-		<div class="container_12">
-			<a href="introduce.php" class="menu">活動訴求</a>
-			<a href="video.php" class="menu">影片分享</a>
-			<a href="discuz.php" class="menu">心得分享</a>
+		<div class="container_12 menu">
+			<a href="introduce.php" class="btn btn-primary">活動訴求</a>
+			<a href="photo.php" class="btn">照片分享</a>
+			<a href="discuz.php" class="btn">心得分享</a>
 		</div>
 		<div class="content-bg">
 			<div class="container_12 content">

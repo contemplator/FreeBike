@@ -101,24 +101,39 @@
 		}
 		#option-bar1{
 			background-color: #f09bc2;
+			opacity:0.6;
 		}
 		#option-bar1:hover{
 			background-color: #9bf0c2;
 			cursor: pointer;
+			-moz-box-shadow: 0 0 10px #ccc;
+			-webkit-box-shadow: 0 0 10px #ccc;
+			box-shadow: 0 0 10px #ccc;
+			opacity:1;
 		}
 		#option-bar2{
 			background-color: #f8c508;
+			opacity:0.6;
 		}
 		#option-bar2:hover{
 			background-color: #c5f808;
 			cursor: pointer;
+			-moz-box-shadow: 0 0 10px #ccc;
+			-webkit-box-shadow: 0 0 10px #ccc;
+			box-shadow: 0 0 10px #ccc;
+			opacity:1;
 		}
 		#option-bar3{
 			background-color: #27f20b;
+			opacity:0.6;
 		}
 		#option-bar3:hover{
 			background-color: #f2270b;	
 			cursor: pointer;
+			-moz-box-shadow: 0 0 10px #ccc;
+			-webkit-box-shadow: 0 0 10px #ccc;
+			box-shadow: 0 0 10px #ccc;
+			opacity:1;
 		}
 		#option-bar2:hover{
 		}
@@ -156,6 +171,11 @@
         .jssora03ldn { background-position: -243px -33px; }
         .jssora03rdn { background-position: -303px -33px; }
         /*jssor slider*/
+        p{
+        	font-size: 17px;
+        	font-weight: bold;
+        	font-family: '微軟正黑體';
+        }
 	</style>
 	<body>
 		<div class="head container_12" id="head">
@@ -171,7 +191,9 @@
 	                top: 0px; left: 0px;width: 100%;height:100%;">
 	            </div>
 	        </div>
-
+	        <div class="iframe container_12">
+				<iframe name="frame" frameborder="0" src="http://www.youtube.com/embed/lz0tYXzkOiI"></iframe>
+			</div>
 	        <!-- Slides Container -->
 	        <div u="slides" style="position: absolute; left: 0px; top: 0px; width: 809px; height: 150px; overflow: hidden;">
 	            <div><a href="video.php"><img u="image" src="resource/01.jpg" /></a></div>
@@ -180,11 +202,6 @@
 	            <div><a href="video.php"><img u="image" src="resource/04.jpg" /></a></div>
 	            <div><a href="video.php"><img u="image" src="resource/05.jpg" /></a></div>
 	            <div><a href="video.php"><img u="image" src="resource/06.jpg" /></a></div>
-	            <div><a href="video.php"><img u="image" src="img/ancient-lady/011.jpg" /></a></div>
-	            <div><a href="video.php"><img u="image" src="img/ancient-lady/013.jpg" /></a></div>
-	            <div><a href="video.php"><img u="image" src="img/ancient-lady/014.jpg" /></a></div>
-	            <div><a href="video.php"><img u="image" src="img/ancient-lady/019.jpg" /></a></div>
-	            <div><a href="video.php"><img u="image" src="img/ancient-lady/020.jpg" /></a></div>
 	        </div>
 
 	        <!-- bullet navigator container -->
@@ -207,7 +224,7 @@
 					<img src="img/introduce.jpg"/>
 				</div>
 				<div id="option-bar2" class="block grid_4 alpha omega">
-					<img src="img/video.jpg"/>
+					<img src="img/photo.jpg"/>
 				</div>
 				<div id="option-bar3" class="block grid_4">
 					<img src="img/review.jpg"/>
@@ -218,7 +235,7 @@
 				<p>想了解我們為什麼做？怎麼做到的嗎？</p>
 			</div>
 			<div class="block grid_4">
-				<p>想看看大家怎麼騎單車，順便救地球嗎？</p>
+				<p>想看看怎麼騎單車，順手救地球嗎？</p>
 			</div>
 			<div class="block grid_4">
 				<p>有什麼想對大家說的嗎？</p>
